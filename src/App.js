@@ -4,20 +4,29 @@ function App() {
   let services = config.services;
 
   return (
-    <div className="App">
-      <header>MJP Dashboard</header>
-      <ul>
+    <div>
+      <h1 className="text-3xl font-bold text-white">MJP Dashboard</h1>
+      <div className="flex flex-wrap justify-start gap-5">
         {services.map((item, i) => (
-          <li key={i}>
-            <p>{item.name}</p>
+          <div className="w-full md:w-auto flex-auto" key={i}>
+            <h3 className="text-3xl m-5 font-semibold text-white">
+              {item.name}
+            </h3>
             {item.items.map((item, i) => (
-              <ul key={i}>
-                <a href={item.url}>{item.name}</a>
-              </ul>
+              <a
+                className="hover:shadow-[5px_5px_5px_indigo] hover:scale-105 transition-all duration-300 m-5 p-6 max-w-2xl bg-slate-700 rounded-xl shadow-lg flex items-center space-x-4 border border-solid border-gray-600"
+                href={item.url}
+                target={"_blank"}
+                rel="noreferrer"
+                key={i}>
+                <p className="m-auto text-3xl font-medium text-white">
+                  {item.name}
+                </p>
+              </a>
             ))}
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

@@ -21,6 +21,15 @@
           "url": "https://github.com/PandolfoM"
         }
       ]
+    },
+    {
+      "name": "Financial",
+      "items": [
+        {
+          "name": "Webster Bank",
+          "url": "https://public.websteronline.com/"
+        }
+      ]
     }
   ]
 }
