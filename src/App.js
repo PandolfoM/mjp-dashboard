@@ -1,3 +1,4 @@
+import Header from "./Components/Header";
 import config from "./config.json";
 
 function App() {
@@ -5,7 +6,7 @@ function App() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold text-white">MJP Dashboard</h1>
+      <Header />
       <div className="flex flex-wrap justify-start gap-5">
         {services.map((item, i) => (
           <div className="w-full md:w-auto flex-auto" key={i}>
@@ -14,7 +15,7 @@ function App() {
             </h3>
             {item.items.map((item, i) => (
               <a
-                className="hover:shadow-[5px_5px_5px_indigo] hover:scale-105 transition-all duration-300 m-5 p-6 max-w-2xl bg-slate-700 rounded-xl shadow-lg flex items-center space-x-4 border border-solid border-gray-600"
+                className="hover:shadow-[5px_5px_5px_indigo] hover:scale-105 transition-all ease-linear duration-300 m-5 p-6 max-w-2xl bg-slate-700 rounded-xl shadow-lg flex items-center space-x-4 border border-solid border-gray-600"
                 href={item.url}
                 target={"_blank"}
                 rel="noreferrer"
