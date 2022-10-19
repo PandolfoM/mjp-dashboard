@@ -56,9 +56,9 @@ function Notepad() {
                       </Dialog.Title>
                       <div className="mt-2 min-w-full">
                         <textarea
-                          className="placeholder:italic placeholder:text-gray-500 bg-slate-90 text-lg p-3 text-left rounded-lg border-none outline-none min-w-full"
+                          className="placeholder:italic placeholder:text-gray-500 bg-slate-90 text-lg p-3 text-left rounded-lg border-none outline-none min-w-full h-72 sm:h-96"
                           placeholder="Enter text here"
-                          rows="5"></textarea>
+                        />
                       </div>
                     </div>
                   </div>
