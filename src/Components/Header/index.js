@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faNoteSticky } from "@fortawesome/free-regular-svg-icons";
-import Tooltip from "./Tooltip";
+import Tooltip from "../Tooltip";
 function Header() {
   const [date, setDate] = useState(new Date());
 
