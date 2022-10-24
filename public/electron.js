@@ -2,6 +2,7 @@ const path = require("path");
 const fs = require('fs')
 const { app, BrowserWindow, ipcMain  } = require("electron");
 const filename = `${app.getPath('userData')}/notedata.json`
+const desktopicon = path.join(__dirname, "favicon.ico")
 
 const loadContent = async () => {
   return fs.existsSync(filename) ? fs.readFileSync(filename, 'utf8') : '';
@@ -28,11 +29,10 @@ function createWindow() {
       nodeIntegration: true,
       preload: path.join(__dirname, 'preload.js')
     },
+    icon: desktopicon
   });
   
   mainWindow.webContents.openDevTools();
-
-  console.log(filename);
 
   if (app.isPackaged) {
     mainWindow.loadFile(path.join(__dirname, "../build/index.html"));
