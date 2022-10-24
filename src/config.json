@@ -1,33 +1,23 @@
 {
   "services": [
     {
-      "name": "Socials",
+      "name": "MJP Systems",
       "items": [
         {
-          "name": "YouTube",
-          "url": "https://www.youtube.com/"
+          "name": "Microsoft Office",
+          "url": "https://www.office.com/apps"
         },
         {
-          "name": "Twitch",
-          "url": "https://www.twitch.tv/"
-        }
-      ]
-    },
-    {
-      "name": "Coding",
-      "items": [
+          "name": "Connect Wise",
+          "url": "https://auth.connectwise.com/Account/Login"
+        },
         {
-          "name": "GitHub",
-          "url": "https://github.com/PandolfoM"
-        }
-      ]
-    },
-    {
-      "name": "Financial",
-      "items": [
+          "name": "Connect Wise Home",
+          "url": "https://home.connectwise.com/"
+        },
         {
-          "name": "Webster Bank",
-          "url": "https://public.websteronline.com/"
+          "name": "Hostedrmm",
+          "url": "https://mjpsystems.hostedrmm.com/automate/login"
         }
       ]
     }

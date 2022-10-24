@@ -1,4 +1,4 @@
-import { Fragment, useContext, useRef } from "react";
+import { Fragment, useContext, useEffect, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Context } from "../../utils/store";
 import TipTap from "../TipTap";
@@ -6,6 +6,16 @@ import TipTap from "../TipTap";
 function Notepad() {
   const [state, dispatch] = useContext(Context);
   const cancelButtonRef = useRef(null);
+
+  useEffect(() => {
+    (async () => {
+      const content = await window.notepad.content;
+      return dispatch({
+        type: "SET_NOTEPADTEXT",
+        payload: JSON.parse(content),
+      });
+    })();
+  }, []);
 
   const handleClose = () => {
     dispatch({
