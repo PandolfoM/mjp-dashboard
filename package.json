@@ -2,21 +2,32 @@
   "name": "mjp-dashboard",
   "version": "0.1.0",
   "private": true,
+  "main": "public/electron.js",
+  "homepage": "./",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-regular-svg-icons": "^6.2.0",
+    "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@headlessui/react": "^1.7.3",
+    "@tiptap/extension-highlight": "^2.0.0-beta.199",
+    "@tiptap/extension-list-item": "^2.0.0-beta.199",
+    "@tiptap/react": "^2.0.0-beta.199",
+    "@tiptap/starter-kit": "^2.0.0-beta.199",
     "babel-plugin-macros": "^3.1.0",
+    "concurrently": "^7.5.0",
+    "craco": "^0.0.3",
+    "cross-env": "^7.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "wait-on": "^6.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "concurrently \"cross-env BROWSER=none cross-env TAILWIND_MODE=watch craco start\" \"wait-on http://localhost:3000 && electron .\"",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "craco eject"
   },
   "eslintConfig": {
     "extends": [
@@ -37,7 +48,9 @@
     ]
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.7",
     "autoprefixer": "^10.4.12",
+    "electron": "^21.2.0",
     "postcss": "^8.4.18",
     "tailwindcss": "^3.1.8"
   }

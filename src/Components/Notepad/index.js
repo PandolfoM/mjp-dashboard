@@ -1,6 +1,7 @@
 import { Fragment, useContext, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Context } from "../../utils/store";
+import TipTap from "../TipTap";
 
 function Notepad() {
   const [state, dispatch] = useContext(Context);
@@ -40,7 +41,7 @@ function Notepad() {
               leave="ease-in duration-200"
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
-              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-slate-700 text-left shadow-xl transition-all sm:my-8 w-full sm:max-w-lg">
+              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-slate-700 text-left shadow-xl transition-all sm:my-8 w-full sm:max-w-2xl">
                 <div className="bg-slate-700 px-4 pt-5 pb-4 sm:p-2 sm:pb-4">
                   <div className="">
                     <div className="mt-3 text-center sm:mt-0 sm:mx-4 sm:text-left">
@@ -55,10 +56,7 @@ function Notepad() {
                         </button>
                       </Dialog.Title>
                       <div className="mt-2 min-w-full">
-                        <textarea
-                          className="placeholder:italic placeholder:text-gray-500 bg-slate-90 text-lg p-3 text-left rounded-lg border-none outline-none min-w-full h-72 sm:h-96"
-                          placeholder="Enter text here"
-                        />
+                        <TipTap />
                       </div>
                     </div>
                   </div>
