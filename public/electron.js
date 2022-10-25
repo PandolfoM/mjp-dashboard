@@ -47,14 +47,6 @@ function createWindow() {
     },
   });
 
-  mainWindow.on('resize', () => {
-    var size   = mainWindow.getSize();
-    var width  = size[0];
-    var height = size[1];
-    console.log("width: " + width);
-    console.log("height: " + height);
-  })
-
   mainWindow.webContents.openDevTools()
 
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {

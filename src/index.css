@@ -19,3 +19,7 @@
 body::-webkit-scrollbar {
   display: none;
 }
+
+.notepadBody::-webkit-scrollbar {
+  display: none;
+}

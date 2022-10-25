@@ -27,8 +27,8 @@ function Notepad() {
   const handleSave = () => {
     dispatch({
       type: "TOGGLE_SAVE",
-      payload: true
-    })
+      payload: true,
+    });
     dispatch({
       type: "SET_NOTEPAD",
       payload: false,
@@ -70,12 +70,22 @@ function Notepad() {
                         as="h3"
                         className="text-lg font-medium leading-6 text-white flex justify-between items-center">
                         Notepad
-                        <button
-                          type="button"
-                          onClick={handleSave}
-                          className="mt-3 inline-flex w-auto justify-center rounded-md bg-green-500 px-4 py-2 text-base text-white font-bold shadow-sm hover:bg-green-600 focus:outline-none sm:mt-0 sm:ml-3 sm:text-sm transition-all ease-linear duration-200 border-none outline-none">
-                          Save
-                        </button>
+                        <div className="gap-2 flex sm:gap-0">
+                          <button
+                            type="button"
+                            onClick={handleClose}
+                            name="close"
+                            className="mt-3 inline-flex w-auto justify-center rounded-md bg-red-500 px-4 py-2 text-base text-white font-bold shadow-sm hover:bg-red-600 focus:outline-none sm:mt-0 sm:ml-3 sm:text-sm transition-all ease-linear duration-200 border-none outline-none">
+                            Close
+                          </button>
+                          <button
+                            type="button"
+                            onClick={handleSave}
+                            name="save"
+                            className="mt-3 inline-flex w-auto justify-center rounded-md bg-green-500 px-4 py-2 text-base text-white font-bold shadow-sm hover:bg-green-600 focus:outline-none sm:mt-0 sm:ml-3 sm:text-sm transition-all ease-linear duration-200 border-none outline-none">
+                            Save
+                          </button>
+                        </div>
                       </Dialog.Title>
                       <div className="mt-2 min-w-full">
                         <TipTap />

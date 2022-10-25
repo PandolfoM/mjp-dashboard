@@ -20,7 +20,7 @@ function TipTap() {
     editorProps: {
       attributes: {
         class:
-          "prose prose-lg prose-invert prose-text: sm:prose-lg lg:prose-lg xl:prose-2xl focus:outline-none bg-slate-800 rounded h-96 sm:96 m-2 pl-1 overflow-y-scroll text-left",
+          "notepadBody prose prose-lg prose-invert prose-text: sm:prose-lg lg:prose-lg xl:prose-2xl focus:outline-none bg-slate-800 rounded h-96 sm:96 m-2 pl-1 overflow-y-scroll text-left",
       },
     },
     autofocus: true,
