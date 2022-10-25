@@ -1,6 +1,6 @@
 {
   "name": "mjp-dashboard",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "main": "public/electron.js",
   "homepage": "./",
@@ -31,6 +31,23 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "craco eject"
+  },
+  "build": {
+    "appId": "MJP Dashboard",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "icon.ico"
+    },
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false,
+      "license": "LICENSE",
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "uninstallDisplayName": "MJP Desktop Uninstaller"
+    }
   },
   "eslintConfig": {
     "extends": [

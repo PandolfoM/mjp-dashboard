@@ -3,8 +3,19 @@
 @tailwind utilities;
 
 @layer base {
-  body {
+  html {
     @apply bg-slate-900
-    scroll-smooth;
+    scroll-smooth
+    box-border
+    m-0
+    p-0;
   }
+}
+
+.drag-region {
+  -webkit-app-region: drag;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
