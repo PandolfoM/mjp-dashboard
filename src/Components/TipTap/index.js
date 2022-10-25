@@ -20,7 +20,7 @@ function TipTap() {
     editorProps: {
       attributes: {
         class:
-          "prose prose-lg prose-invert prose-text: sm:prose-lg lg:prose-lg xl:prose-2xl focus:outline-none bg-slate-800 rounded h-72 sm:96 m-2 pl-1",
+          "prose prose-lg prose-invert prose-text: sm:prose-lg lg:prose-lg xl:prose-2xl focus:outline-none bg-slate-800 rounded h-96 sm:96 m-2 pl-1 overflow-y-scroll",
       },
     },
     autofocus: true,
@@ -28,15 +28,22 @@ function TipTap() {
       type: "doc",
       content: state.notepadText,
     },
-    onUpdate: ({ editor }) => {
+  });
+
+  useEffect(() => {
+    if (state.save) {
       const json = editor.getJSON();
       window.notepad.saveContent(JSON.stringify(json.content));
-      return dispatch({
+      dispatch({
         type: "SET_NOTEPADTEXT",
         payload: json.content,
       });
-    },
-  });
+      dispatch({
+        type: "TOGGLE_SAVE",
+        payload: false,
+      });
+    }
+  }, [state.save])
 
   if (!editor) {
     return null;
@@ -45,7 +52,7 @@ function TipTap() {
   return (
     <div>
       <MenuBar editor={editor} />
-      <EditorContent editor={editor} className="prose-p:mb-0" />
+      <EditorContent editor={editor} className="h-96"/>
     </div>
   );
 }

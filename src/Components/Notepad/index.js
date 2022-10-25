@@ -1,4 +1,4 @@
-import { Fragment, useContext, useEffect, useRef } from "react";
+import { Fragment, useContext, useEffect, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Context } from "../../utils/store";
 import TipTap from "../TipTap";
@@ -18,6 +18,17 @@ function Notepad() {
   }, []);
 
   const handleClose = () => {
+    dispatch({
+      type: "SET_NOTEPAD",
+      payload: false,
+    });
+  };
+
+  const handleSave = () => {
+    dispatch({
+      type: "TOGGLE_SAVE",
+      payload: true
+    })
     dispatch({
       type: "SET_NOTEPAD",
       payload: false,
@@ -61,6 +72,7 @@ function Notepad() {
                         Notepad
                         <button
                           type="button"
+                          onClick={handleSave}
                           className="mt-3 inline-flex w-auto justify-center rounded-md bg-green-500 px-4 py-2 text-base text-white font-bold shadow-sm hover:bg-green-600 focus:outline-none sm:mt-0 sm:ml-3 sm:text-sm transition-all ease-linear duration-200 border-none outline-none">
                           Save
                         </button>

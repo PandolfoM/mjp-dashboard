@@ -10,6 +10,11 @@ const Reducer = (state, action) => {
         ...state,
         notepadText: action.payload,
       };
+    case "TOGGLE_SAVE":
+      return {
+        ...state,
+        save: action.payload,
+      };
     default:
       return state;
   }

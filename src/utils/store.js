@@ -3,6 +3,7 @@ import Reducer from "./reducer";
 
 const initialState = {
   notepad: false,
+  save: false,
   notepadText: []
 };
 
