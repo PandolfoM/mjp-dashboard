@@ -4,7 +4,9 @@ function Dashboard() {
   let services = config.services;
 
   const handleClick = (file) => {
-    if (file.includes(".exe")) {
+    if (file.includes("http")) {
+      return;
+    } else {
       window.notepad.openExe(file);
     }
   };

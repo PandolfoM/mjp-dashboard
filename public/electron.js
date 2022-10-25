@@ -39,9 +39,9 @@ function createWindow() {
     icon: desktopicon,
   });
 
-  // mainWindow.webContents.setWindowOpenHandler(({url}) => {
-  //   shell.openExternal(url);
-  // });
+  mainWindow.webContents.setWindowOpenHandler(({url}) => {
+    shell.openExternal(url);
+  });
 
   if (app.isPackaged) {
     mainWindow.loadFile(path.join(__dirname, "../build/index.html"));
