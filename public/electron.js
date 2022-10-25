@@ -1,25 +1,24 @@
 const path = require("path");
-const fs = require('fs')
-const { app, BrowserWindow, ipcMain  } = require("electron");
-const filename = `${app.getPath('userData')}/notedata.json`
-const desktopicon = path.join(__dirname, "favicon.ico")
+const fs = require("fs");
+const { app, BrowserWindow, ipcMain, shell } = require("electron");
+const filename = `${app.getPath("userData")}/notedata.json`;
+const desktopicon = path.join(__dirname, "favicon.ico");
 
 const loadContent = async () => {
-  return fs.existsSync(filename) ? fs.readFileSync(filename, 'utf8') : '';
-}
+  return fs.existsSync(filename) ? fs.readFileSync(filename, "utf8") : "";
+};
 
 const saveContent = async (content) => {
-  fs.writeFileSync(filename, content, 'utf8');
-}
+  fs.writeFileSync(filename, content, "utf8");
+};
 
 ipcMain.handle("loadContent", (e) => {
   return loadContent();
 });
 
-ipcMain.on("saveContent", (e, content) =>{
+ipcMain.on("saveContent", (e, content) => {
   saveContent(content);
 });
-
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
@@ -27,12 +26,15 @@ function createWindow() {
     height: 600,
     webPreferences: {
       nodeIntegration: true,
-      preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, "preload.js"),
     },
-    icon: desktopicon
+    icon: desktopicon,
   });
-  
-  mainWindow.webContents.openDevTools();
+
+  mainWindow.webContents.on("new-window", function (e, url) {
+    e.preventDefault();
+    shell.openExternal(url);
+  });
 
   if (app.isPackaged) {
     mainWindow.loadFile(path.join(__dirname, "../build/index.html"));
