@@ -8,6 +8,10 @@ const loadContent = async () => {
   return fs.existsSync(filename) ? fs.readFileSync(filename, "utf8") : "";
 };
 
+const openExe = async (file) => {
+  shell.openPath(file)
+};
+
 const saveContent = async (content) => {
   fs.writeFileSync(filename, content, "utf8");
 };
@@ -16,14 +20,18 @@ ipcMain.handle("loadContent", (e) => {
   return loadContent();
 });
 
+ipcMain.on("openExe", (e, file) => {
+  openExe(file);
+});
+
 ipcMain.on("saveContent", (e, content) => {
   saveContent(content);
 });
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1000,
+    height: 1200,
     webPreferences: {
       nodeIntegration: true,
       preload: path.join(__dirname, "preload.js"),
@@ -31,10 +39,9 @@ function createWindow() {
     icon: desktopicon,
   });
 
-  mainWindow.webContents.on("new-window", function (e, url) {
-    e.preventDefault();
-    shell.openExternal(url);
-  });
+  // mainWindow.webContents.setWindowOpenHandler(({url}) => {
+  //   shell.openExternal(url);
+  // });
 
   if (app.isPackaged) {
     mainWindow.loadFile(path.join(__dirname, "../build/index.html"));

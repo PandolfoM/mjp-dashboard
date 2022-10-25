@@ -6,6 +6,8 @@ Create a `config.json` file in the `src` folder.
 
 ``` json
 {
+  // Title of dashboard
+  "title": "Test Dashboard",
   "services": [
     {
       "name": "Name of category",

@@ -3,8 +3,14 @@ import config from "../../config.json";
 function Dashboard() {
   let services = config.services;
 
+  const handleClick = (file) => {
+    if (file.includes(".exe")) {
+      window.notepad.openExe(file);
+    }
+  };
+
   return (
-    <div className="flex flex-wrap justify-start gap-5">
+    <div className="flex flex-wrap justify-start gap-5 px-5">
       {services.map((item, i) => (
         <div className="w-full md:w-auto flex-auto" key={i}>
           <h3 className="text-3xl m-5 mb-1 font-semibold text-white text-center">
@@ -17,7 +23,8 @@ function Dashboard() {
               href={item.url}
               target={"_blank"}
               rel="noreferrer"
-              key={i}>
+              key={i}
+              onClick={() => handleClick(item.url)}>
               <p className="m-auto text-3xl font-medium text-white">
                 {item.name}
               </p>

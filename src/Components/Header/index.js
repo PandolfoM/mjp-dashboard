@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faNoteSticky } from "@fortawesome/free-regular-svg-icons";
 import Tooltip from "../Tooltip";
 import { Context } from "../../utils/store";
+import config from "../../config.json";
 
 function Header() {
   const [state, dispatch] = useContext(Context);
@@ -15,14 +16,14 @@ function Header() {
   const handleClick = () => {
     dispatch({
       type: "SET_NOTEPAD",
-      payload: true
-    })
-  }
+      payload: true,
+    });
+  };
 
   return (
     <div className="m-5">
       <div className="flex justify-between mb-2">
-        <h1 className="text-3xl font-bold text-white">MJP Dashboard</h1>
+        <h1 className="text-3xl font-bold text-white">{config.title}</h1>
         <h2 className="text-2xl font-semibold text-white">
           {date.toLocaleTimeString()}
         </h2>

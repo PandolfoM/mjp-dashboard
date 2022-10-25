@@ -1,4 +1,4 @@
-import { Fragment, useContext, useEffect, useRef, useState } from "react";
+import { Fragment, useContext, useEffect, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Context } from "../../utils/store";
 import TipTap from "../TipTap";
