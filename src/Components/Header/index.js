@@ -9,9 +9,11 @@ function Header() {
   const [state, dispatch] = useContext(Context);
   const [date, setDate] = useState(new Date());
 
-  setInterval(() => {
-    setDate(new Date());
-  }, 1 * 1000);
+  if (config.showTime){
+    setInterval(() => {
+      setDate(new Date());
+    }, 1 * 1000);
+  }
 
   const handleClick = () => {
     dispatch({
@@ -25,7 +27,7 @@ function Header() {
       <div className="flex justify-between mb-2">
         <h1 className="text-3xl font-bold text-white">{config.title}</h1>
         <h2 className="text-2xl font-semibold text-white">
-          {date.toLocaleTimeString()}
+          {config.showTime && date.toLocaleTimeString()}
         </h2>
       </div>
       <hr className="border-slate-600" />

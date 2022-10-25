@@ -8,6 +8,8 @@ Create a `config.json` file in the `src` folder.
 {
   // Title of dashboard
   "title": "Test Dashboard",
+  // Enable time on header
+  "showTime": true,
   "services": [
     {
       "name": "Name of category",
