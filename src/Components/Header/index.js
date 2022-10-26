@@ -4,6 +4,7 @@ import { faNoteSticky } from "@fortawesome/free-regular-svg-icons";
 import Tooltip from "../Tooltip";
 import { Context } from "../../utils/store";
 import config from "../../config.json";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
   const [state, dispatch] = useContext(Context);
@@ -15,11 +16,18 @@ function Header() {
     }, 1 * 1000);
   }
 
-  const handleClick = () => {
-    dispatch({
-      type: "SET_NOTEPAD",
-      payload: true,
-    });
+  const handleClick = (e) => {
+    if (e.target.ariaLabel === "notes") {
+      dispatch({
+        type: "SET_NOTEPAD",
+        payload: true,
+      });
+    } else {
+      dispatch({
+        type: "SET_CONFIG",
+        payload: true,
+      });
+    }
   };
 
   return (
@@ -31,10 +39,15 @@ function Header() {
         </h2>
       </div>
       <hr className="border-slate-600" />
-      <div className="m-5 flex justify-end">
-        <Tooltip tooltipText={"Notepad"} orientation="bottom">
+      <div className="m-5 flex justify-end gap-4">
+        <Tooltip tooltipText={"Notepad"} orientation="bottom" >
           <button onClick={handleClick}>
-            <FontAwesomeIcon icon={faNoteSticky} inverse size="2x" />
+            <FontAwesomeIcon icon={faNoteSticky} aria-label="notes" inverse size="xl" />
+          </button>
+        </Tooltip>
+        <Tooltip tooltipText={"Settings"} orientation="bottom">
+          <button onClick={handleClick}>
+            <FontAwesomeIcon icon={faGear} aria-label="config" inverse size="xl" />
           </button>
         </Tooltip>
       </div>

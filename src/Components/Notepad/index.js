@@ -2,6 +2,7 @@ import { Fragment, useContext, useEffect, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Context } from "../../utils/store";
 import TipTap from "../TipTap";
+import Settings from "../Settings";
 
 function Notepad() {
   const [state, dispatch] = useContext(Context);
@@ -18,25 +19,43 @@ function Notepad() {
   }, []);
 
   const handleClose = () => {
-    dispatch({
-      type: "SET_NOTEPAD",
-      payload: false,
-    });
+    if (state.notepad) {
+      dispatch({
+        type: "SET_NOTEPAD",
+        payload: false,
+      });
+    } else {
+      dispatch({
+        type: "SET_CONFIG",
+        payload: false,
+      });
+    }
   };
 
   const handleSave = () => {
-    dispatch({
-      type: "TOGGLE_SAVE",
-      payload: true,
-    });
-    dispatch({
-      type: "SET_NOTEPAD",
-      payload: false,
-    });
+    if (state.notepad) {
+      dispatch({
+        type: "TOGGLE_SAVE",
+        payload: true,
+      });
+      dispatch({
+        type: "SET_NOTEPAD",
+        payload: false,
+      });
+    } else {
+      dispatch({
+        type: "TOGGLE_SAVE",
+        payload: true,
+      });
+      dispatch({
+        type: "SET_CONFIG",
+        payload: false,
+      });
+    }
   };
 
   return (
-    <Transition.Root show={state.notepad} as={Fragment}>
+    <Transition.Root show={state.notepad || state.config} as={Fragment}>
       <Dialog
         as="div"
         className="relative z-10"
@@ -88,7 +107,7 @@ function Notepad() {
                         </div>
                       </Dialog.Title>
                       <div className="mt-2 min-w-full">
-                        <TipTap />
+                        {state.notepad ? <TipTap /> : <Settings />}
                       </div>
                     </div>
                   </div>
