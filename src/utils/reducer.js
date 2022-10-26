@@ -20,6 +20,11 @@ const Reducer = (state, action) => {
         ...state,
         save: action.payload,
       };
+    case "TOGGLE_CONFIGSAVE":
+      return {
+        ...state,
+        configSave: action.payload,
+      };
     default:
       return state;
   }

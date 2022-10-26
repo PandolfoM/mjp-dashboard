@@ -44,7 +44,7 @@ function Notepad() {
       });
     } else {
       dispatch({
-        type: "TOGGLE_SAVE",
+        type: "TOGGLE_CONFIGSAVE",
         payload: true,
       });
       dispatch({

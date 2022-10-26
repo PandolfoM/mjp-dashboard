@@ -50,7 +50,7 @@ ipcMain.on("saveConfigContent", (e, content) => {
 function createWindow() {
   const mainWindow = new BrowserWindow({
     width: 1000,
-    height: 1200,
+    height: 800,
     minWidth: 475,
     minHeight: 645,
     autoHideMenuBar: true,
