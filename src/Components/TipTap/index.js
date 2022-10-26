@@ -33,7 +33,7 @@ function TipTap() {
   useEffect(() => {
     if (state.save) {
       const json = editor.getJSON();
-      window.notepad.saveContent(JSON.stringify(json.content));
+      window.app.notepad.saveContent(JSON.stringify(json.content));
       dispatch({
         type: "SET_NOTEPADTEXT",
         payload: json.content,

@@ -34,12 +34,7 @@ function createWindow() {
     height: 1200,
     minWidth: 475,
     minHeight: 645,
-    titleBarStyle: "hidden",
-    titleBarOverlay: {
-      color: "black",
-      symbolColor: "white",
-      height: 24
-    },
+    autoHideMenuBar: true,
     icon: desktopicon,
     webPreferences: {
       nodeIntegration: true,
@@ -47,7 +42,6 @@ function createWindow() {
     },
   });
 
-  mainWindow.webContents.openDevTools()
 
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
     shell.openExternal(url);

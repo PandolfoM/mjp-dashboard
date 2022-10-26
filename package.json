@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "main": "public/electron.js",
+  "author": "Matthew Pandolfo",
+  "description": "Customizable dashboard app for your computer.",
   "homepage": "./",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",

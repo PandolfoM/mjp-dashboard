@@ -9,7 +9,7 @@ function Notepad() {
 
   useEffect(() => {
     (async () => {
-      const content = await window.notepad.content;
+      const content = await window.app.notepad.loadContent;
       return dispatch({
         type: "SET_NOTEPADTEXT",
         payload: JSON.parse(content),

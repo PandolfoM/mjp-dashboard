@@ -7,7 +7,7 @@ function Dashboard() {
     if (file.includes("http")) {
       return;
     } else {
-      window.notepad.openExe(file);
+      window.app.openExe(file);
     }
   };
 
