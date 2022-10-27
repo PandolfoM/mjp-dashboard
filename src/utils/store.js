@@ -5,6 +5,7 @@ const initialState = {
   notepad: false,
   config: false,
   save: false,
+  configSave: false,
   notepadText: []
 };
 

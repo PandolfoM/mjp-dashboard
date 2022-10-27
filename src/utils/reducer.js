@@ -15,6 +15,11 @@ const Reducer = (state, action) => {
         ...state,
         notepadText: action.payload,
       };
+    case "SET_CONFIGTEXT":
+      return {
+        ...state,
+        configText: action.payload,
+      };
     case "TOGGLE_SAVE":
       return {
         ...state,

@@ -1,12 +1,12 @@
 import Dashboard from "./Components/Dashboard";
 import Header from "./Components/Header";
-import Notepad from "./Components/Notepad";
+import Modal from "./Components/Modal";
 import Store from "./utils/store";
 
 function App() {
   return (
     <Store>
-      <Notepad />
+      <Modal />
       <Header />
       <Dashboard />
     </Store>
