@@ -45,11 +45,6 @@ function Header() {
             <FontAwesomeIcon icon={faNoteSticky} aria-label="notes" inverse size="xl" />
           </button>
         </Tooltip>
-        <Tooltip tooltipText={"Settings"} orientation="bottom">
-          <button onClick={handleClick}>
-            <FontAwesomeIcon icon={faGear} aria-label="config" inverse size="xl" />
-          </button>
-        </Tooltip>
       </div>
     </div>
   );

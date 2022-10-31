@@ -1,7 +1,6 @@
 import { Fragment, useContext, useEffect, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Context } from "../../utils/store";
-import Settings from "../Settings";
 import Notepad from "../Notepad";
 
 function Modal() {
@@ -88,7 +87,7 @@ function Modal() {
                       <Dialog.Title
                         as="h3"
                         className="text-lg font-medium leading-6 text-white flex justify-between items-center">
-                        {state.notepad ? "Notepad" : "Settings"}
+                        Notepad
                         <div className="gap-2 flex sm:gap-0">
                           <button
                             type="button"
@@ -107,7 +106,7 @@ function Modal() {
                         </div>
                       </Dialog.Title>
                       <div className="mt-2 min-w-full">
-                        {state.notepad ? <Notepad /> : <Settings />}
+                        <Notepad />
                       </div>
                     </div>
                   </div>
